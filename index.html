@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 3 - Calculadora_Beli Ochando</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="fonts.css">
+
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <section class="website">
+        <img src="/images/Background.png" alt="Imagenbackground" class="Imagenbackground">
+        <div class="calculadora">
+            <div class="visor">
+                <img src="/images/visor.svg" alt="Fondo del visor" class="visor-background">
+                <input type="text" id="display" class="display" disabled placeholder="hello!">
+            </div>
+            <div class="botones">
+                <button class="boton" data-valor="0">7</button>
+                <button class="boton" data-valor="1">8</button>
+                <button class="boton" data-valor="2">9</button>
+                <button class="operador" data-valor="3">÷</button>
+                <button class="boton" data-valor="4">4</button>
+                <button class="boton" data-valor="5">5</button>
+                <button class="boton" data-valor="6">6</button>
+                <button class="operador" data-valor="7">×</button>
+                <button class="boton" data-valor="8">1</button>
+                <button class="boton" data-valor="9">2</button>
+                <button class="boton" data-valor="10">3</button>
+                <button class="operador" data-valor="11">-</button>
+                <button class="boton" data-valor="12">0</button>
+                <button class="operador" data-valor="13">.</button>
+                <button class="operador" data-valor="14">00</button>
+                <button class="operador" data-valor="15">+</button>
+            </div>
+            <div class="importantoperator">
+                <button class="resetear">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="94" height="85" viewBox="0 0 94 85" fill="none">
+                        <path d="M20.2789 38.3627C14.9291 43.5752 9.54174 49.1386 4.26025 54.9257L4.24999 54.9188C1.19589 58.2562 -0.293603 62.6223 0.0480199 67.2086C0.413556 72.0874 2.89374 76.7907 6.83606 80.1143C10.5222 83.2212 15.1546 84.9312 19.91 84.938C25.0343 84.938 29.8409 82.884 33.1102 79.2955C37.0355 74.9672 41.0052 70.8178 45.1866 66.6547C47.4072 70.4256 48.4867 72.865 48.4935 72.8788C51.5989 80.1144 59.0497 84.9862 67.0368 85H67.0437C69.0558 85 71.0099 84.6972 72.841 84.0986C77.511 82.5847 81.1254 79.3815 83.0248 75.0635C84.9242 70.7834 84.8798 65.9356 82.9189 61.4044C82.2869 59.9421 78.8911 52.4209 72.1475 42.6565C80.6881 35.999 85.9183 32.8681 85.9764 32.8371C89.9221 30.5353 92.6346 26.8539 93.6117 22.4706C94.6502 17.8086 93.5844 12.7577 90.6703 8.6015C86.9432 3.30297 80.5959 0.0068812 74.0914 0C70.805 0 67.645 0.822321 64.9632 2.38435C64.2185 2.81787 57.5534 6.74015 46.905 15.032C43.3658 12.1075 39.8607 9.49949 36.219 7.09796C32.8848 4.88221 29.0279 3.70897 25.0787 3.70209C19.1857 3.70209 13.7881 6.39952 10.6383 10.9273C8.4861 13.9895 7.50908 17.6262 7.79946 21.4315C8.21966 27.0087 11.4377 32.3004 16.3912 35.5792C17.7441 36.4807 19.0286 37.4131 20.2789 38.3627Z" fill="black"/>
+                      </svg>
+                </button>
+                <button class="Calcular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="117" height="101" viewBox="0 0 117 101" fill="none">
+                        <path d="M29.5268 60C44.2049 60 80.333 55.9024 98.7691 17.9246L98.7711 17.9205C101.816 11.6393 99.0075 4.13441 92.5072 1.19497C90.7619 0.40241 88.9014 0 86.9833 0C81.9488 0 77.3171 2.84138 75.1833 7.24134C64.1417 29.9826 44.4454 34.7564 29.866 34.7564C22.1589 34.7564 16.6042 33.3756 16.3801 33.3163C15.2824 33.0385 14.1558 32.8955 13.0313 32.8955C7.16209 32.8955 1.99183 36.7174 0.454116 42.1918C-0.450421 45.4377 0.0059824 48.8285 1.73694 51.7394C3.472 54.6543 6.27605 56.7399 9.63311 57.6162C13.7981 58.7029 20.6315 60 29.5268 60Z" fill="black"/>
+                        <path d="M46.5268 101C61.2049 101 97.333 96.9024 115.769 58.9246L115.771 58.9205C118.816 52.6393 116.008 45.1344 109.507 42.195C107.762 41.4024 105.901 41 103.983 41C98.9488 41 94.3171 43.8414 92.1833 48.2413C81.1417 70.9827 61.4454 75.7564 46.866 75.7564C39.1589 75.7564 33.6042 74.3756 33.3801 74.3163C32.2824 74.0385 31.1558 73.8955 30.0313 73.8955C24.1621 73.8955 18.9918 77.7174 17.4541 83.1918C16.5496 86.4377 17.006 89.8285 18.7369 92.7394C20.472 95.6543 23.2761 97.7399 26.6331 98.6162C30.7981 99.7029 37.6315 101 46.5268 101Z" fill="black"/>
+                      </svg>
+                </button>
+            </div>           
+        </div>
+    </section>
+</body>
+</html>
