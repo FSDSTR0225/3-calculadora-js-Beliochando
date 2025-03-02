@@ -4,3 +4,11 @@
     font-weight: 500;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'TheGirlNextDoor-Regular';
+    src: url('OTF/TheGirlNextDoor.ttf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+

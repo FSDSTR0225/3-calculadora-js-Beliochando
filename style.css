@@ -151,17 +151,19 @@ h1, h2, h3, p, .boton, .operador {
 
 .importantoperator {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    gap: 350px;
+    width: auto;
     position: absolute;
-    bottom: 180px;
-    margin-left: -60px;
+    bottom: 200px;
+    left: 20px;
     z-index: 2;
+    margin-left: 620px;
 }
 
-.resetear, .Calcular {
+
+.resethere {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -170,20 +172,17 @@ h1, h2, h3, p, .boton, .operador {
     align-items: center;
 }
 
+.resetear {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 .resetear:hover svg path {
     fill: #FEDF00;
     transition: background-color 0.1s ease, transform 0.1s ease;
-}
-
-.Calcular:hover svg path {
-    fill: #FEDF00;
-    transition: background-color 0.1s ease, transform 0.1s ease;
-}
-
-
-
-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 }
