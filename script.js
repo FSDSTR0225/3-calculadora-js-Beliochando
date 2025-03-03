@@ -10,7 +10,6 @@ let currentNumber = '';
 let lastResult = null;
 let canInputOperator = false;
 let canInputNumber = true;
-let lastOperator = '';
 
 function updateDisplay(value, type = 'display') {
     if (type === 'display') {
@@ -28,6 +27,16 @@ Array.from(buttons).forEach(button => {
             expression = value;
             currentNumber = value;
             hasError = false;
+            updateDisplay(expression, 'display');
+            canInputOperator = true;
+            canInputNumber = true;
+            return;
+        }
+
+        if (lastResult !== null) {
+            expression = value;
+            currentNumber = value;
+            lastResult = null;
             updateDisplay(expression, 'display');
             canInputOperator = true;
             canInputNumber = true;
@@ -61,22 +70,46 @@ Array.from(operators).forEach(operator => {
     operator.addEventListener('click', () => {
         const value = operator.textContent;
 
-        if (display.placeholder && value === ".") {
-            if (!currentNumber.includes('.')) {
+        if (value === '.') {
+
+            if (lastResult !== null) {
+                expression = "0.";
+                currentNumber = "0.";
+                updateDisplay(expression, "display");
+                canInputOperator = false;
+                canInputNumber = true;
+                lastResult = null;
+                return;
+            }
+
+            if (currentNumber.includes('.')) return;
+
+            if (currentNumber === '') {
+                expression += "0.";
+                currentNumber = "0.";
+            } else {
+
                 expression += value;
                 currentNumber += value;
-                updateDisplay(expression, 'display');
             }
+
+            updateDisplay(expression, "display");
             canInputOperator = false;
             canInputNumber = true;
             return;
         }
 
-        if (!currentNumber && value !== '-') return;
+        if (!currentNumber && value !== '-' && lastResult === null) return;
 
-        if (!canInputOperator && value !== '-') return;
-        
-        if (value === '-' && expression.slice(-3, -1) === ' -') return;
+        if (!currentNumber && lastResult !== null) {
+            expression = lastResult.toString() + ` ${value} `;
+            currentNumber = '';
+            lastResult = null;
+            updateDisplay(expression, 'display');
+            canInputOperator = false;
+            canInputNumber = true;
+            return;
+        }
 
         if (value === '=') {
             try {
@@ -84,17 +117,17 @@ Array.from(operators).forEach(operator => {
                     .replace('×', '*')
                     .replace('÷', '/');
 
-                let result = eval(safeExpression);
+                let result = new Function('return ' + safeExpression)();
                 let displayResult = roundToDecimal(result, 4);
 
                 lastResult = displayResult;
 
                 updateDisplay(displayResult, 'display');
                 updateDisplay(expression, 'expression');
-                expression = displayResult;
-                currentNumber = displayResult;
+                expression = displayResult.toString();
+                currentNumber = '';
                 canInputOperator = true;
-                canInputNumber = false;
+                canInputNumber = true;
             } catch (error) {
                 hasError = true;
                 updateDisplay('Error', 'display');
@@ -102,27 +135,15 @@ Array.from(operators).forEach(operator => {
                 canInputOperator = false;
                 canInputNumber = false;
             }
-        } else if (value === '÷' || value === '×' || value === '-' || value === '+') {
+            return;
+        }
+
+        if (value === '÷' || value === '×' || value === '-' || value === '+') {
             expression += ` ${value} `;
             currentNumber = '';
             updateDisplay(expression, 'display');
             canInputOperator = false;
             canInputNumber = true;
-        } else if (value === '.') {
-            if (!canInputNumber) {
-                expression = '0.';
-                currentNumber = '0.';
-                updateDisplay(expression, 'display');
-                canInputOperator = false;
-                canInputNumber = true;
-                return;
-            }
-
-            if (currentNumber.includes('.')) return;
-
-            expression += value;
-            currentNumber += value;
-            updateDisplay(expression, 'display');
         }
     });
 });
@@ -144,14 +165,6 @@ function roundToDecimal(value, decimals) {
     }
 
     return isNegative ? -absoluteValue : absoluteValue;
-}
-
-function formatNumber(value) {
-    let formattedValue = value.toString();
-    if (formattedValue.indexOf('.') !== -1) {
-        formattedValue = formattedValue.replace(/\.?0+$/, '');
-    }
-    return formattedValue;
 }
 
 resetButton.addEventListener('click', () => {
