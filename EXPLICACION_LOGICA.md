@@ -106,11 +106,11 @@ En un principio había utilizado: "let result = eval(safeExpression);" pero, al 
             }
         }
 
-    _En esta función, lo que he querido determinar es cómo se actualiza la pantalla de la calculadora, teniendo en cuenta que tengo una "casilla" para realizar las operaciones y otra para ir mostrando las operaciones anteriores._
+    En esta función, lo que he querido determinar es cómo se actualiza la pantalla de la calculadora, teniendo en cuenta que tengo una "casilla" para realizar las operaciones y otra para ir mostrando las operaciones anteriores.
 
-    display.placeholder es la casilla donde se van a ir escribiendo las operaciones._
+    display.placeholder es la casilla donde se van a ir escribiendo las operaciones.
 
-    _expressionDisplay es la casilla donde se van mostrando las operaciones anteriores.
+    expressionDisplay es la casilla donde se van mostrando las operaciones anteriores.
 
 ### 3. Botones de número.
 
@@ -258,7 +258,7 @@ En un principio había utilizado: "let result = eval(safeExpression);" pero, al 
                 });
             });
 
-Lo que yo quería hacer con esta función es lo siguiente:
+    Lo que yo quería hacer con esta función es lo siguiente:
 
         1. Identificar los botones de operadores, igual y decimal del código HTML y convertirlos en un array para trabajar sobre ellos.
 
@@ -282,7 +282,7 @@ Lo que yo quería hacer con esta función es lo siguiente:
 
         9. Mostrar los números decimales en máximo 4 digitos.
 
-_Sin lugar a dudas ha sido la parte más compleja porque tiene muchos condicionantes y, en función de cómo aplico una lógica, lo mismo me cargo otra que ya he hecho o interfiere en otra que está por hacer._
+    _Sin lugar a dudas ha sido la parte más compleja porque tiene muchos condicionantes y, en función de cómo aplico una lógica, lo mismo me cargo otra que ya he hecho o interfiere en otra que está por hacer._
 
 ### 5. Función de redondeo.
 
@@ -305,7 +305,7 @@ _Sin lugar a dudas ha sido la parte más compleja porque tiene muchos condiciona
                 return isNegative ? -absoluteValue : absoluteValue;
             }
 
-Básicamente consiste esta función en que cuando haya un número con decimales, directamente se muestre en pantalla el número redondeado al final.
+    Básicamente consiste esta función en que cuando haya un número con decimales, directamente se muestre en pantalla el número redondeado al final.
 
 ### 6. Función de reseteo.
 
@@ -320,7 +320,7 @@ Básicamente consiste esta función en que cuando haya un número con decimales,
                 updateDisplay('', 'expression');
             });
 
-Esta función lo que hace es que cuando se pulsa en el botón de reseteo, actualice el display reiniciandolo para hacer una nueva operación. En este caso, en lugar de poner 0 o nada, le he puesto la frase "Try again!" para motivar a seguir usándola y practicar el cambiarle el contenido según los diferentes botones.
+    Esta función lo que hace es que cuando se pulsa en el botón de reseteo, actualice el display reiniciandolo para hacer una nueva operación. En este caso, en lugar de poner 0 o nada, le he puesto la frase "Try again!" para motivar a seguir usándola y practicar el cambiarle el contenido según los diferentes botones.
 
 ### 7. Función de recargar la página.
 
@@ -331,10 +331,10 @@ Esta función lo que hace es que cuando se pulsa en el botón de reseteo, actual
                 updateDisplay('', 'expression');
             }
 
-Esta función sirve para que cuando la página se recargue vuelva a la configuración inicial la calculadora. Si no estuviera, todo el tiempo que se reseteara aparecería "Try again!" y no volvería a aparecer "Auuu, yeah!".
+    Esta función sirve para que cuando la página se recargue vuelva a la configuración inicial la calculadora. Si no estuviera, todo el tiempo que se reseteara aparecería "Try again!" y no volvería a aparecer "Auuu, yeah!".
 
 ###### ¡Y ESTO ES TODO!
 
-Por supuesto, me he apoyado en la IA para entender cada paso que he ido dando y tratar de configurarlo de la forma más idónea, pero he ido línea a línea comprendiendo y corrigiendo constántemente errores, cambiando el enfoque de lo que estaba queriendo conseguir, exprimiéndome la sesera para entender cómo llegar a formular lo que necesitaba y celebrando cada pasito.
+    Por supuesto, me he apoyado en la IA para entender cada paso que he ido dando y tratar de configurarlo de la forma más idónea, pero he ido línea a línea comprendiendo y corrigiendo constántemente errores, cambiando el enfoque de lo que estaba queriendo conseguir, exprimiéndome la sesera para entender cómo llegar a formular lo que necesitaba y celebrando cada pasito.
 
-¡Espero que os guste!
+    ¡Espero que os guste!
